@@ -133,9 +133,10 @@ sortable.on("drag:out:container", e => {
 sortable.on("sortable:stop", ({ newIndex, oldIndex, dragEvent }) => {
   if (draggedOut) {
     dragEvent.data.originalSource.className = "empty";
-    sources[oldIndex] = undefined;
+    sources[sourceOrder[oldIndex]] = undefined;
     updateTotalSampleLength();
-  } else sourceOrder.splice(newIndex, 0, sourceOrder.splice(oldIndex, 1)[0]);
+  }
+  sourceOrder.splice(newIndex, 0, sourceOrder.splice(oldIndex, 1)[0]);
 });
 
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
