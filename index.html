@@ -6,12 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link
+      rel="icon"
+      href="https://cdn.glitch.com/61a9804b-8603-47b8-ac1e-400f462046a1%2Ffavicon.ico?v=1581108805966"
+      type="image/x-icon"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
       rel="stylesheet"
     />
-    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.12/lib/draggable.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shopify/draggable@1.0.0-beta.9/lib/draggable.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -31,6 +36,30 @@
         </li>
         <li>
           <label>Pad names<input type="text"/></label>
+        </li>
+        <li>
+          <div class="audio-conversion">
+            <h3>Audio Conversion</h3>
+            <div class="bit-depth-options">
+              <label><input type="radio" name="bitDepth" value="8" checked> 8-bit</label>
+              <label><input type="radio" name="bitDepth" value="16"> 16-bit</label>
+              <label><input type="radio" name="bitDepth" value="24"> 24-bit</label>
+              <label><input type="radio" name="bitDepth" value="32"> 32-bit float</label>
+            </div>
+            <div class="bit-rate-info">
+              <div class="bit-rate-display">
+                <span id="originalBitRate">Original: --</span>
+                <span id="newBitRate">New: --</span>
+                <span id="bitRateChange">Change: --</span>
+              </div>
+            </div>
+            <div class="conversion-controls">
+              <input type="file" id="audioInput" accept="audio/*" multiple class="file-input">
+              <button id="convertBtn" class="convert-btn" disabled>Convert Audio</button>
+              <button id="downloadBtn" class="download-btn" disabled>Download</button>
+            </div>
+            <div id="statusMessage" class="status" style="display: none"></div>
+          </div>
         </li>
         <li>
           To re-apply the same settings next time,
@@ -58,7 +87,7 @@
         <p>
           Drag and drop an audio file (.wav, .mp3, .ogg, …) onto a pad. Click to
           play the sample. Once you've loaded a few, plug in your K.O. and click
-          “Play all” to record the samples into a drum bank.
+          "Play all" to record the samples into a drum bank.
         </p>
         <p>
           This app works 100% locally, so your private samples remain private.

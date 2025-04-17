@@ -215,6 +215,116 @@ button {
   height: 38px;
 }
 
+.bit-depth-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  background: #d6d6d6;
+  padding: 15px;
+  border-radius: 1.5vmin;
+}
+
+.bit-depth-options label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000;
+  cursor: pointer;
+  padding: 0.3em 0;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+.bit-depth-options input[type="radio"] {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.file-input {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 2px solid #4CAF50;
+  border-radius: 4px;
+  background: white;
+  color: #333;
+  cursor: pointer;
+}
+
+.file-input:hover {
+  background: #f0f0f0;
+}
+
+.file-input::-webkit-file-upload-button {
+  background: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.file-input::-webkit-file-upload-button:hover {
+  background: #45a049;
+}
+
+.conversion-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.convert-btn,
+.download-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #4CAF50;
+  color: white;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background 0.3s;
+}
+
+.convert-btn:disabled,
+.download-btn:disabled {
+  background: #666;
+  cursor: not-allowed;
+}
+
+.convert-btn:hover:not(:disabled),
+.download-btn:hover:not(:disabled) {
+  background: #45a049;
+}
+
+.status {
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+  display: none;
+}
+
+.status.success {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4CAF50;
+}
+
+.status.error {
+  background: rgba(244, 67, 54, 0.2);
+  color: #f44336;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
 @media (orientation: portrait) {
   body {
     flex-direction: column-reverse;
@@ -224,4 +334,54 @@ button {
   .toggles {
     flex-direction: row-reverse;
   }
+}
+
+/* Audio Conversion Styles */
+.audio-conversion {
+  margin: 20px 0;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.audio-conversion h3 {
+  margin: 0 0 15px 0;
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.bit-rate-info {
+  margin: 15px 0;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+.bit-rate-display {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-size: 16px;
+  color: #333;
+}
+
+.bit-rate-display span {
+  display: block;
+  padding: 5px 0;
+}
+
+.bit-rate-display #bitRateChange {
+  font-weight: 600;
+}
+
+.bit-rate-display .increase {
+  color: #f44336;
+}
+
+.bit-rate-display .decrease {
+  color: #4CAF50;
+}
+
+.bit-rate-display .no-change {
+  color: #666;
 }
